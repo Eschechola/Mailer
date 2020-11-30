@@ -1,6 +1,16 @@
-﻿namespace Mailer.Core.Messages
+﻿using System;
+using MediatR;
+
+
+namespace Mailer.Core.Messages
 {
-    public class Event
+    public abstract class Event : INotification
     {
+        public DateTime TimeStamp { get; private set; }
+
+        public Event()
+        {
+            TimeStamp = DateTime.Now;
+        }
     }
 }
